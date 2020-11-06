@@ -6,7 +6,12 @@ from load_data import load_snapshot_data_distributed
 from turbo_cmap import *
 import matplotlib
 matplotlib.use('Agg') 
-
+import matplotlib
+# set some global options
+matplotlib.rcParams['font.sans-serif'] = "Helvetica"
+matplotlib.rcParams['font.family'] = "sans-serif"
+matplotlib.rcParams['mathtext.fontset'] = 'cm'
+matplotlib.rcParams['mathtext.rm'] = 'serif'
 #Load Snapshot Data
 dataDir = '/data/groups/comp-astro/bruno/'
 
@@ -83,10 +88,10 @@ font = {'fontname': 'Helvetica',
     'ha':'center'
     }
 cb.set_label_text( r'$\mathrm{log_{10}}  \,\,\,\, \mathrm{Temperature} \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
-cb.ax.tick_params(labelsize=29, size=15, color='black', width=5, length=30, labelcolor='black', direction='in' )
+cb.ax.tick_params(labelsize=18, size=10, color='black', width=3, length=15, labelcolor='black', direction='in' )
 
  
-fig.tight_layout()
+# fig.tight_layout()
 fileName = 'projections.png'
 fig.savefig( fileName,  bbox_inches='tight',  dpi=600, pad_inches=0.05 )
 print('Saved image: ', fileName)
