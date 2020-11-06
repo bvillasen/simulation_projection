@@ -51,11 +51,11 @@ n_cols, n_rows = 2, 1
 fig = plt.figure(0, figsize=(12*n_cols,10*n_rows),  )
 grid = ImageGrid(fig, 111,          # as in plt.subplot(111)
                  nrows_ncols=(n_rows,n_cols),
-                 axes_pad=0.2,
+                 axes_pad=0.1,
                  share_all=True,
                  cbar_location="right",
                  cbar_mode="single",
-                 cbar_size="7%",
+                 cbar_size="5%",
                  cbar_pad=0.1,
                  )
   
