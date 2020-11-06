@@ -88,7 +88,7 @@ font = {'fontname': 'Helvetica',
     'ha':'center'
     }
 cb.set_label_text( r'$\mathrm{log_{10}}  \,\,\,\, \mathrm{Temperature} \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
-cb.ax.tick_params(labelsize=18, size=10, color='black', width=3, length=15, labelcolor='black', direction='in' )
+cb.ax.tick_params(labelsize=15, size=10, color='black', width=2, length=10, labelcolor='black', direction='in' )
 
  
 # fig.tight_layout()
