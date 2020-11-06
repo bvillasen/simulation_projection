@@ -74,12 +74,12 @@ cb = ax.cax.colorbar( im  )
 font = {'fontname': 'Helvetica',
     'color':  'black',
     'weight': 'normal',
-    'size': 38,
+    'size': 30,
     'ha':'center'
     }
-cb.set_label_text( r'$\mathrm{Temeperature} \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
-
+cb.set_label_text( r'$\mathrm{log_{10}} T \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
+ 
 fig.tight_layout()
 fileName = 'projections.png'
-fig.savefig( fileName,  bbox_inches='tight',  dpi=300, pad_inches=-0.0 )
+fig.savefig( fileName,  bbox_inches='tight',  dpi=600, pad_inches=-0.0 )
 print('Saved image: ', fileName)
