@@ -41,7 +41,7 @@ for uvb in [ 'pchw18', 'hm12']:
 
 
 min_val = min( projections['pchw18'].min(), projections['hm12'].min() )
-max_val = max( projections['pchw18'].max(), projections['hm12'].max() )
+max_val = max( projections['pchw18'].max(), projections['hm12'].max() ) / 10
 
 
 
@@ -61,11 +61,23 @@ colormap = 'turbo'
 
 ax = grid[0]
 im = ax.imshow( projections['hm12'],   vmin=min_val, vmax=max_val, cmap=colormap, extent=(0, 50., 0, 50) )
-
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
 
 ax = grid[1]
 im = ax.imshow( projections['pchw18'],   vmin=min_val, vmax=max_val, cmap=colormap, extent=(0, 50., 0, 50) )
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
 
+cb = ax.cax.colorbar( im  )
+
+font = {'fontname': 'Helvetica',
+    'color':  'black',
+    'weight': 'normal',
+    'size': 38,
+    'ha':'center'
+    }
+cb.set_label_text( r'$\mathrm{Temeperature} \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
 
 # fig.tight_layout()
 fileName = 'projections.png'
