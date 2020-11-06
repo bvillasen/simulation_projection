@@ -53,5 +53,5 @@ grid = ImageGrid(fig, 111,          # as in plt.subplot(111)
 
 fig.tight_layout()
 fileName = 'projections.png'
-fig.savefig( outDir + fileName,  bbox_inches='tight',  dpi=900, pad_inches=-0.0 )
+fig.savefig( fileName,  bbox_inches='tight',  dpi=900, pad_inches=-0.0 )
 print('Saved image: ', fileName)
