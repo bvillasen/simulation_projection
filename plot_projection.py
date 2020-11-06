@@ -43,7 +43,7 @@ for uvb in [ 'pchw18', 'hm12']:
 
 
 min_val = min( projections['pchw18'].min(), projections['hm12'].min() )
-max_val = max( projections['pchw18'].max(), projections['hm12'].max() ) 
+max_val = max( projections['pchw18'].max(), projections['hm12'].max() ) * 0.9
 print( f' min:{min_val}    max:{max_val}' )
 
 
@@ -83,5 +83,5 @@ cb.set_label_text( r'$\mathrm{log_{10}}  \,\,\,\, \mathrm{Temperature} \,\,\,\,\
  
 fig.tight_layout()
 fileName = 'projections.png'
-fig.savefig( fileName,  bbox_inches='tight',  dpi=600, pad_inches=-0.05 )
+fig.savefig( fileName,  bbox_inches='tight',  dpi=600, pad_inches=0.05 )
 print('Saved image: ', fileName)
