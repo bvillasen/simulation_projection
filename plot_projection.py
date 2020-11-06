@@ -11,7 +11,7 @@ uvb = 'pchw18'
 inDir = dataDir + f'cosmo_sims/2048_hydro_50Mpc/output_files_{uvb}/'
 
 
-n_snapshot = 118
+n_snapshot = 131
 
 data_type = 'hydro'
 # data_type = 'particles'
@@ -26,6 +26,9 @@ box_size = [ Lbox, Lbox, Lbox ]
 grid_size = [ 2048, 2048, 2048 ] #Size of the simulation grid
 subgrid = [ [0, 2048], [0, 2048], [0, 2048] ] #Size of the volume to load
 data = load_snapshot_data_distributed( n_snapshot, inDir, data_type, fields, subgrid,  precision, proc_grid,  box_size, grid_size, show_progess=True )
+current_z = data['Current_z']
 temperature = data[data_type]['temperature']  
 
 
+projection_width = 512
+projection = temperature[:projection_width,:,:].sum(axis=0)
