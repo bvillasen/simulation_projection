@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import ImageGrid
 from load_data import load_snapshot_data_distributed
+import matplotlib
+matplotlib.use('Agg') 
 
 #Load Snapshot Data
 dataDir = '/data/groups/comp-astro/bruno/'
