@@ -36,7 +36,7 @@ for uvb in [ 'pchw18', 'hm12']:
   temperature = data[data_type]['temperature']  
   projection_mean = temperature[:projection_width,:,:].sum(axis=0)
   projection2     = (temperature[:projection_width,:,:]**2).sum(axis=0)
-  prejection      = projection2 / projection_mean
+  projection      = projection2 / projection_mean
   projections[uvb] = np.log10(projection)
 
 
