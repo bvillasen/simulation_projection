@@ -34,7 +34,9 @@ for uvb in [ 'pchw18', 'hm12']:
   data = load_snapshot_data_distributed( n_snapshot, inDir, data_type, fields, subgrid,  precision, proc_grid,  box_size, grid_size, show_progess=True )
   current_z = data['Current_z']
   temperature = data[data_type]['temperature']  
-  projection = temperature[:projection_width,:,:].sum(axis=0)
+  projection_mean = temperature[:projection_width,:,:].sum(axis=0)
+  projection2     = (temperature[:projection_width,:,:]**2).sum(axis=0)
+  prejection      = projection2 / projection_mean
   projections[uvb] = np.log10(projection)
 
 
@@ -42,7 +44,7 @@ for uvb in [ 'pchw18', 'hm12']:
 
 min_val = min( projections['pchw18'].min(), projections['hm12'].min() )
 max_val = max( projections['pchw18'].max(), projections['hm12'].max() ) 
-
+print( f' min:{min_val}    max:{max_val})
 
 
 n_cols, n_rows = 2, 1
@@ -74,12 +76,12 @@ cb = ax.cax.colorbar( im  )
 font = {'fontname': 'Helvetica',
     'color':  'black',
     'weight': 'normal',
-    'size': 30,
+    'size': 24,
     'ha':'center'
     }
-cb.set_label_text( r'$\mathrm{log_{10}} T \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
+cb.set_label_text( r'$\mathrm{log_{10}}  \,\,\,\, \mathrm{Temperature} \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
  
 fig.tight_layout()
 fileName = 'projections.png'
-fig.savefig( fileName,  bbox_inches='tight',  dpi=600, pad_inches=-0.0 )
+fig.savefig( fileName,  bbox_inches='tight',  dpi=600, pad_inches=-0.05 )
 print('Saved image: ', fileName)
