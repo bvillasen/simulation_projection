@@ -1,6 +1,6 @@
 import os, sys
 import numpy as np
-from load_data impoirt load_snapshot_data_distributed
+from load_data import load_snapshot_data_distributed
 
 
 #Load Snapshot Data
