@@ -79,7 +79,7 @@ font = {'fontname': 'Helvetica',
     }
 cb.set_label_text( r'$\mathrm{Temeperature} \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
 
-# fig.tight_layout()
+fig.tight_layout()
 fileName = 'projections.png'
 fig.savefig( fileName,  bbox_inches='tight',  dpi=300, pad_inches=-0.0 )
 print('Saved image: ', fileName)
