@@ -77,8 +77,8 @@ ax = grid[1]
 im = ax.imshow( projections['pchw18'],   vmin=min_val, vmax=max_val, cmap=colormap, extent=(0, 50., 0, 50) )
 ax.text(0.95, 0.95,  'P19', color='white', alpha=1, fontsize=30, horizontalalignment='right', verticalalignment='center', transform=ax.transAxes )
 bar_coords = [ [ 5, 15 ], [45, 45]]
-ax.errorbar( bar_coords[0], bar_coords[1], yerr=0, linewidth=5, color=text_color, alpha=0.9 )
-ax.text(0.05, 0.93, r'$10 \,\, h^{-1} \,\mathrm{Mpc}$', color=text_color, alpha=1, fontsize=25, horizontalalignment='center', verticalalignment='center', transform=ax.transAxes )
+ax.errorbar( bar_coords[0], bar_coords[1], yerr=0, linewidth=5, color='white', alpha=0.9 )
+ax.text(0.05, 0.93, r'$10 \,\, h^{-1} \,\mathrm{Mpc}$', color='white', alpha=1, fontsize=25, horizontalalignment='center', verticalalignment='center', transform=ax.transAxes )
 ax.get_xaxis().set_visible(False)
 ax.get_yaxis().set_visible(False)
 
