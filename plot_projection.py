@@ -70,6 +70,7 @@ ax.get_yaxis().set_visible(False)
 
 ax = grid[1]
 im = ax.imshow( projections['pchw18'],   vmin=min_val, vmax=max_val, cmap=colormap, extent=(0, 50., 0, 50) )
+ax.text(0.95, 0.95,  'P19', color='white', alpha=1, fontsize=30, horizontalalignment='right', verticalalignment='center', transform=ax.transAxes )
 ax.get_xaxis().set_visible(False)
 ax.get_yaxis().set_visible(False)
 
@@ -82,6 +83,8 @@ font = {'fontname': 'Helvetica',
     'ha':'center'
     }
 cb.set_label_text( r'$\mathrm{log_{10}}  \,\,\,\, \mathrm{Temperature} \,\,\,\,\,[ \mathrm{K}  ] $', fontdict=font )
+cb.ax.tick_params(labelsize=29, size=15, color='black', width=5, length=30, labelcolor='black', direction='in' )
+
  
 fig.tight_layout()
 fileName = 'projections.png'
