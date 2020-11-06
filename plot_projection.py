@@ -1,7 +1,8 @@
 import os, sys
 import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import ImageGrid
 from load_data import load_snapshot_data_distributed
-
 
 #Load Snapshot Data
 dataDir = '/data/groups/comp-astro/bruno/'
@@ -11,7 +12,7 @@ uvb = 'pchw18'
 
 
 n_snapshot = 131
-projection_width = 512
+projection_width = 256
 
 data_type = 'hydro'
 fields = ['temperature']
@@ -33,3 +34,22 @@ for uvb in [ 'pchw18', 'hm12']:
   projection = temperature[:projection_width,:,:].sum(axis=0)
   projections[uvb] = projection
 
+
+n_cols, n_rows = 2, 1
+fig = plt.figure(0, figsize=(12*n_cols,10*n_rows),  )
+grid = ImageGrid(fig, 111,          # as in plt.subplot(111)
+                 nrows_ncols=(n_rows,n_cols),
+                 axes_pad=0.2,
+                 share_all=True,
+                 cbar_location="right",
+                 cbar_mode="single",
+                 cbar_size="7%",
+                 cbar_pad=0.1,
+                 )
+  
+
+
+fig.tight_layout()
+fileName = 'projections.png'
+fig.savefig( outDir + fileName,  bbox_inches='tight',  dp600, pad_inches=-0.0 )
+print('Saved image: ', fileName)
