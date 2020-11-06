@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import ImageGrid
 from load_data import load_snapshot_data_distributed
+from turbo_cmap import *
 import matplotlib
 matplotlib.use('Agg') 
 
@@ -34,7 +35,14 @@ for uvb in [ 'pchw18', 'hm12']:
   current_z = data['Current_z']
   temperature = data[data_type]['temperature']  
   projection = temperature[:projection_width,:,:].sum(axis=0)
-  projections[uvb] = projection
+  projections[uvb] = np.log10(projection)
+
+
+
+
+min_val = min( projections['pchw18'].min(), projections['hm12'].min() )
+max_val = max( projections['pchw18'].max(), projections['hm12'].max() )
+
 
 
 n_cols, n_rows = 2, 1
@@ -49,9 +57,17 @@ grid = ImageGrid(fig, 111,          # as in plt.subplot(111)
                  cbar_pad=0.1,
                  )
   
+colormap = 'turbo'
+
+ax = grid[0]
+im = ax.imshow( projections['hm12'],   vmin=min_val, vmax=max_val, cmap=colormap, extent=(0, 50., 0, 50) )
 
 
-fig.tight_layout()
+ax = grid[1]
+im = ax.imshow( projections['pchw18'],   vmin=min_val, vmax=max_val, cmap=colormap, extent=(0, 50., 0, 50) )
+
+
+# fig.tight_layout()
 fileName = 'projections.png'
-fig.savefig( fileName,  bbox_inches='tight',  dpi=900, pad_inches=-0.0 )
+fig.savefig( fileName,  bbox_inches='tight',  dpi=300, pad_inches=-0.0 )
 print('Saved image: ', fileName)
