@@ -44,7 +44,7 @@ for uvb in [ 'pchw18', 'hm12']:
 
 min_val = min( projections['pchw18'].min(), projections['hm12'].min() )
 max_val = max( projections['pchw18'].max(), projections['hm12'].max() ) 
-print( f' min:{min_val}    max:{max_val})
+print( f' min:{min_val}    max:{max_val}' )
 
 
 n_cols, n_rows = 2, 1
