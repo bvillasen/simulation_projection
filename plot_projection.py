@@ -43,7 +43,7 @@ for uvb in [ 'pchw18', 'hm12']:
 
 
 min_val = min( projections['pchw18'].min(), projections['hm12'].min() )
-max_val = max( projections['pchw18'].max(), projections['hm12'].max() ) * 0.9
+max_val = max( projections['pchw18'].max(), projections['hm12'].max() ) 
 print( f' min:{min_val}    max:{max_val}' )
 
 
@@ -61,8 +61,10 @@ grid = ImageGrid(fig, 111,          # as in plt.subplot(111)
   
 colormap = 'turbo'
 
+
 ax = grid[0]
 im = ax.imshow( projections['hm12'],   vmin=min_val, vmax=max_val, cmap=colormap, extent=(0, 50., 0, 50) )
+ax.text(0.95, 0.95,  'HM12', color='white', alpha=1, fontsize=30, horizontalalignment='right', verticalalignment='center', transform=ax.transAxes )
 ax.get_xaxis().set_visible(False)
 ax.get_yaxis().set_visible(False)
 
